@@ -1,0 +1,23 @@
+{
+  "name": "aurelia-pal-worker",
+  "version": "0.0.1",
+  "description": "The web-worker-based implementation of Aurelia's platform abstraction layer.",
+  "keywords": [
+    "aurelia",
+    "pal"
+  ],
+  "homepage": "http://aurelia.io",
+  "main": "dist/commonjs/aurelia-pal-worker.js",
+  "moduleType": "node",
+  "license": "MIT",
+  "authors": [
+    "Devan Patel <devan@devanpatel.me>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/aurelia/pal-worker"
+  },
+  "dependencies": {
+    "aurelia-pal": "^1.0.0-rc.1.0.0"
+  }
+}
