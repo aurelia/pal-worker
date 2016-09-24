@@ -9,7 +9,7 @@ import {_ensurePerformance} from './performance';
 let isInitialized = false;
 
 /**
-* Initializes the PAL with the Browser-targeted implementation.
+* Initializes the PAL with the Worker-targeted implementation.
 */
 export function initialize(): void {
   if (isInitialized) {
