@@ -1,12 +1,10 @@
-import {initializePAL} from 'aurelia-pal';
+import {initializePAL, isInitialized} from 'aurelia-pal';
 import {_PLATFORM} from './platform';
 import {_FEATURE} from './feature';
 import {_DOM} from './dom';
 import {_ensureCustomEvent} from './custom-event';
 import {_ensureFunctionName} from './function-name';
 import {_ensurePerformance} from './performance';
-
-let isInitialized = false;
 
 /**
 * Initializes the PAL with the Worker-targeted implementation.
@@ -15,8 +13,6 @@ export function initialize(): void {
   if (isInitialized) {
     return;
   }
-
-  isInitialized = true;
 
   _ensurePerformance();
   _ensureCustomEvent();
