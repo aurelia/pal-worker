@@ -15,6 +15,9 @@ export const _DOM = {
   createElement(tagName: string): Element {
     throw new self.DOMException('createElement is not available in a service/web worker');
   },
+  createAttribute(name: string): Attr {
+    throw new self.DOMException('createAttribute is not available in a service/web worker');
+  },
   createTextNode(text) {
     throw new self.DOMException('createTextNode is not available in a service/web worker');
   },
