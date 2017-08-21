@@ -27,6 +27,9 @@ export const _DOM = {
   createDocumentFragment(): DocumentFragment {
     throw new self.DOMException('createDocumentFragment is not available in a service/web worker');
   },
+  createTemplateElement(): HTMLTemplateElement {
+    throw new self.DOMException('createTemplateElement is not available in a service/web worker');
+  },
   createMutationObserver(callback: Function): MutationObserver {
     throw new self.DOMException('createMutationObserver is not available in a service/web worker');
   },
