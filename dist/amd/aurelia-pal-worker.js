@@ -95,64 +95,74 @@ define(['exports', 'aurelia-pal'], function (exports, _aureliaPal) {
     return false;
   }();
 
+  function na(name) {
+    throw new self.DOMException(name + ' is not available in a service/web worker');
+  }
+
   var _DOM = exports._DOM = {
     boundary: 'aurelia-dom-boundary',
     addEventListener: function addEventListener(eventName, callback, capture) {
-      throw new self.DOMException('addEventListener is not available in a service/web worker');
+      na('addEventListener');
     },
     removeEventListener: function removeEventListener(eventName, callback, capture) {
-      throw new self.DOMException('removeEventListener is not available in a service/web worker');
+      na('removeEventListener');
     },
     adoptNode: function adoptNode(node) {
-      throw new self.DOMException('adoptNode is not available in a service/web worker');
+      na('adoptNode');
     },
     createElement: function createElement(tagName) {
-      throw new self.DOMException('createElement is not available in a service/web worker');
+      na('createElement');
+    },
+    createAttribute: function createAttribute(name) {
+      na('createAttribute');
     },
     createTextNode: function createTextNode(text) {
-      throw new self.DOMException('createTextNode is not available in a service/web worker');
+      na('createTextNode');
     },
     createComment: function createComment(text) {
-      throw new self.DOMException('createComment is not available in a service/web worker');
+      na('createComment');
     },
     createDocumentFragment: function createDocumentFragment() {
-      throw new self.DOMException('createDocumentFragment is not available in a service/web worker');
+      na('createDocumentFragment');
+    },
+    createTemplateElement: function createTemplateElement() {
+      na('createTemplateElement');
     },
     createMutationObserver: function createMutationObserver(callback) {
-      throw new self.DOMException('createMutationObserver is not available in a service/web worker');
+      na('createMutationObserver');
     },
     createCustomEvent: function createCustomEvent(eventType, options) {
-      throw new self.DOMException('createCustomEvent is not available in a service/web worker');
+      na('createCustomEvent');
     },
     dispatchEvent: function dispatchEvent(evt) {
-      throw new self.DOMException('getComputedStyle is not available in a service/web worker');
+      na('getComputedStyle');
     },
     getComputedStyle: function getComputedStyle(element) {
-      throw new self.DOMException('getComputedStyle is not available in a service/web worker');
+      na('getComputedStyle');
     },
     getElementById: function getElementById(id) {
-      throw new self.DOMException('getElementById is not available in a service/web worker');
+      na('getElementById');
     },
     querySelectorAll: function querySelectorAll(query) {
-      throw new self.DOMException('querySelectorAll is not available in a service/web worker');
+      na('querySelectorAll');
     },
     nextElementSibling: function nextElementSibling(element) {
-      throw new self.DOMException('nextElementSibling is not available in a service/web worker');
+      na('nextElementSibling');
     },
     createTemplateFromMarkup: function createTemplateFromMarkup(markup) {
-      throw new self.DOMException('createTemplateFromMarkup is not available in a service/web worker');
+      na('createTemplateFromMarkup');
     },
     appendNode: function appendNode(newNode, parentNode) {
-      throw new self.DOMException('appendNode is not available in a service/web worker');
+      na('appendNode');
     },
     replaceNode: function replaceNode(newNode, node, parentNode) {
-      throw new self.DOMException('replaceNode is not available in a service/web worker');
+      na('replaceNode');
     },
     removeNode: function removeNode(node, parentNode) {
-      throw new self.DOMException('removeNode is not available in a service/web worker');
+      na('removeNode');
     },
     injectStyles: function injectStyles(styles, destination, prepend) {
-      throw new self.DOMException('injectStyles is not available in a service/web worker');
+      na('injectStyles');
     }
   };
 

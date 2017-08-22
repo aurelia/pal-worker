@@ -70,64 +70,74 @@ _FEATURE.mutationObserver = function () {
   return false;
 }();
 
+function na(name) {
+  throw new self.DOMException(`${ name } is not available in a service/web worker`);
+}
+
 export const _DOM = {
   boundary: 'aurelia-dom-boundary',
   addEventListener(eventName, callback, capture) {
-    throw new self.DOMException('addEventListener is not available in a service/web worker');
+    na('addEventListener');
   },
   removeEventListener(eventName, callback, capture) {
-    throw new self.DOMException('removeEventListener is not available in a service/web worker');
+    na('removeEventListener');
   },
   adoptNode(node) {
-    throw new self.DOMException('adoptNode is not available in a service/web worker');
+    na('adoptNode');
   },
   createElement(tagName) {
-    throw new self.DOMException('createElement is not available in a service/web worker');
+    na('createElement');
+  },
+  createAttribute(name) {
+    na('createAttribute');
   },
   createTextNode(text) {
-    throw new self.DOMException('createTextNode is not available in a service/web worker');
+    na('createTextNode');
   },
   createComment(text) {
-    throw new self.DOMException('createComment is not available in a service/web worker');
+    na('createComment');
   },
   createDocumentFragment() {
-    throw new self.DOMException('createDocumentFragment is not available in a service/web worker');
+    na('createDocumentFragment');
+  },
+  createTemplateElement() {
+    na('createTemplateElement');
   },
   createMutationObserver(callback) {
-    throw new self.DOMException('createMutationObserver is not available in a service/web worker');
+    na('createMutationObserver');
   },
   createCustomEvent(eventType, options) {
-    throw new self.DOMException('createCustomEvent is not available in a service/web worker');
+    na('createCustomEvent');
   },
   dispatchEvent(evt) {
-    throw new self.DOMException('getComputedStyle is not available in a service/web worker');
+    na('getComputedStyle');
   },
   getComputedStyle(element) {
-    throw new self.DOMException('getComputedStyle is not available in a service/web worker');
+    na('getComputedStyle');
   },
   getElementById(id) {
-    throw new self.DOMException('getElementById is not available in a service/web worker');
+    na('getElementById');
   },
   querySelectorAll(query) {
-    throw new self.DOMException('querySelectorAll is not available in a service/web worker');
+    na('querySelectorAll');
   },
   nextElementSibling(element) {
-    throw new self.DOMException('nextElementSibling is not available in a service/web worker');
+    na('nextElementSibling');
   },
   createTemplateFromMarkup(markup) {
-    throw new self.DOMException('createTemplateFromMarkup is not available in a service/web worker');
+    na('createTemplateFromMarkup');
   },
   appendNode(newNode, parentNode) {
-    throw new self.DOMException('appendNode is not available in a service/web worker');
+    na('appendNode');
   },
   replaceNode(newNode, node, parentNode) {
-    throw new self.DOMException('replaceNode is not available in a service/web worker');
+    na('replaceNode');
   },
   removeNode(node, parentNode) {
-    throw new self.DOMException('removeNode is not available in a service/web worker');
+    na('removeNode');
   },
   injectStyles(styles, destination, prepend) {
-    throw new self.DOMException('injectStyles is not available in a service/web worker');
+    na('injectStyles');
   }
 };
 
