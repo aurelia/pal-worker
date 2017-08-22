@@ -1,69 +1,73 @@
+function na(name) {
+  throw new self.DOMException(`${name} is not available in a service/web worker`);
+}
+
 /**
 * Represents the core APIs of the DOM.
 */
 export const _DOM = {
   boundary: 'aurelia-dom-boundary',
   addEventListener(eventName: string, callback: Function, capture?: boolean): void {
-    throw new self.DOMException('addEventListener is not available in a service/web worker');
+    na('addEventListener');
   },
   removeEventListener(eventName: string, callback: Function, capture?: boolean): void {
-    throw new self.DOMException('removeEventListener is not available in a service/web worker');
+    na('removeEventListener');
   },
   adoptNode(node: Node) {
-    throw new self.DOMException('adoptNode is not available in a service/web worker');
+    na('adoptNode');
   },
   createElement(tagName: string): Element {
-    throw new self.DOMException('createElement is not available in a service/web worker');
+    na('createElement');
   },
   createAttribute(name: string): Attr {
-    throw new self.DOMException('createAttribute is not available in a service/web worker');
+    na('createAttribute');
   },
   createTextNode(text) {
-    throw new self.DOMException('createTextNode is not available in a service/web worker');
+    na('createTextNode');
   },
   createComment(text) {
-    throw new self.DOMException('createComment is not available in a service/web worker');
+    na('createComment');
   },
   createDocumentFragment(): DocumentFragment {
-    throw new self.DOMException('createDocumentFragment is not available in a service/web worker');
+    na('createDocumentFragment');
   },
   createTemplateElement(): HTMLTemplateElement {
-    throw new self.DOMException('createTemplateElement is not available in a service/web worker');
+    na('createTemplateElement');
   },
   createMutationObserver(callback: Function): MutationObserver {
-    throw new self.DOMException('createMutationObserver is not available in a service/web worker');
+    na('createMutationObserver');
   },
   createCustomEvent(eventType: string, options: Object): CustomEvent {
-    throw new self.DOMException('createCustomEvent is not available in a service/web worker');
+    na('createCustomEvent');
   },
   dispatchEvent(evt): void {
-    throw new self.DOMException('getComputedStyle is not available in a service/web worker');
+    na('getComputedStyle');
   },
   getComputedStyle(element: Element) {
-    throw new self.DOMException('getComputedStyle is not available in a service/web worker');
+    na('getComputedStyle');
   },
   getElementById(id: string): Element {
-    throw new self.DOMException('getElementById is not available in a service/web worker');
+    na('getElementById');
   },
   querySelectorAll(query: string) {
-    throw new self.DOMException('querySelectorAll is not available in a service/web worker');
+    na('querySelectorAll');
   },
   nextElementSibling(element: Node): Element {
-    throw new self.DOMException('nextElementSibling is not available in a service/web worker');
+    na('nextElementSibling');
   },
   createTemplateFromMarkup(markup: string): Element {
-    throw new self.DOMException('createTemplateFromMarkup is not available in a service/web worker');
+    na('createTemplateFromMarkup');
   },
   appendNode(newNode: Node, parentNode?: Node): void {
-    throw new self.DOMException('appendNode is not available in a service/web worker');
+    na('appendNode');
   },
   replaceNode(newNode: Node, node: Node, parentNode?: Node): void {
-    throw new self.DOMException('replaceNode is not available in a service/web worker');
+    na('replaceNode');
   },
   removeNode(node: Node, parentNode?: Node): void {
-    throw new self.DOMException('removeNode is not available in a service/web worker');
+    na('removeNode');
   },
   injectStyles(styles: string, destination?: Element, prepend?: boolean): Node {
-    throw new self.DOMException('injectStyles is not available in a service/web worker');
+    na('injectStyles');
   }
 };
