@@ -45,6 +45,85 @@ System.register(['aurelia-pal'], function (_export, _context) {
         };
       })();
     }
+
+    var startOffset = Date.now ? Date.now() : +new Date();
+    var _entries = [];
+    var _marksIndex = {};
+
+    function _filterEntries(key, value) {
+      var i = 0,
+          n = _entries.length,
+          result = [];
+      for (; i < n; i++) {
+        if (_entries[i][key] == value) {
+          result.push(_entries[i]);
+        }
+      }
+      return result;
+    }
+
+    function _clearEntries(type, name) {
+      var i = _entries.length,
+          entry;
+      while (i--) {
+        entry = _entries[i];
+        if (entry.entryType == type && (name === void 0 || entry.name == name)) {
+          _entries.splice(i, 1);
+        }
+      }
+    };
+
+    if (!self.performance.mark) {
+      self.performance.mark = self.performance.webkitMark || function (name) {
+        var mark = {
+          name: name,
+          entryType: "mark",
+          startTime: self.performance.now(),
+          duration: 0
+        };
+
+        _entries.push(mark);
+        _marksIndex[name] = mark;
+      };
+    }
+
+    if (!self.performance.measure) {
+      self.performance.measure = self.performance.webkitMeasure || function (name, startMark, endMark) {
+        startMark = _marksIndex[startMark].startTime;
+        endMark = _marksIndex[endMark].startTime;
+
+        _entries.push({
+          name: name,
+          entryType: "measure",
+          startTime: startMark,
+          duration: endMark - startMark
+        });
+      };
+    }
+
+    if (!self.performance.getEntriesByType) {
+      self.performance.getEntriesByType = self.performance.webkitGetEntriesByType || function (type) {
+        return _filterEntries("entryType", type);
+      };
+    }
+
+    if (!self.performance.getEntriesByName) {
+      self.performance.getEntriesByName = self.performance.webkitGetEntriesByName || function (name) {
+        return _filterEntries("name", name);
+      };
+    }
+
+    if (!self.performance.clearMarks) {
+      self.performance.clearMarks = self.performance.webkitClearMarks || function (name) {
+        _clearEntries("mark", name);
+      };
+    }
+
+    if (!self.performance.clearMeasures) {
+      self.performance.clearMeasures = self.performance.webkitClearMeasures || function (name) {
+        _clearEntries("measure", name);
+      };
+    }
   }
 
   _export('_ensurePerformance', _ensurePerformance);
